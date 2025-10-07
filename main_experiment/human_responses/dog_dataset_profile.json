@@ -1,0 +1,15 @@
+{
+    "dataset_name": "dog",
+    "r_range": [
+        3,
+        5,
+        10
+    ],
+    "n_classes": 4,
+    "labels": [
+        0,
+        1,
+        2,
+        3
+    ]
+}

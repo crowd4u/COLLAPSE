@@ -1,0 +1,15 @@
+{
+    "dataset_name": "adult",
+    "r_range": [
+        3,
+        5
+    ],
+    "n_classes": 5,
+    "labels": [
+        0,
+        1,
+        2,
+        3,
+        4
+    ]
+}

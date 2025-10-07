@@ -1,0 +1,14 @@
+ハンドルされていない例外: MicrosoftResearch.Infer.Maths.AllZeroException: The model has zero probability
+   場所 MicrosoftResearch.Infer.Distributions.Discrete.SetToProduct(Discrete a, Discrete b)
+   場所 MicrosoftResearch.Infer.Factors.JaggedSubarrayOp`1.ArrayAverageLogarithm[DistributionType,ArrayType,ItemType](IList`1 items, IList`1 indices, ArrayType result)
+   場所 MicrosoftResearch.Infer.Models.User.Model0_VMP.Changed_numberOfIterations_NoiseMatrix_WorkerCount_WorkerTaskCount_WorkerTaskIndex_BackgroundLabelPr1(Int32 numberOfIterations) 場所 c:\Users\tamut\AppData\Local\Temp\3kr0q0nq.0.cs:行 1506
+   場所 MicrosoftResearch.Infer.Models.User.Model0_VMP.Execute(Int32 numberOfIterations, Boolean initialise) 場所 c:\Users\tamut\AppData\Local\Temp\3kr0q0nq.0.cs:行 629
+   場所 MicrosoftResearch.Infer.Models.User.Model0_VMP.Execute(Int32 numberOfIterations) 場所 c:\Users\tamut\AppData\Local\Temp\3kr0q0nq.0.cs:行 637
+   場所 MicrosoftResearch.Infer.InferenceEngine.Execute(IGeneratedAlgorithm ca)
+   場所 MicrosoftResearch.Infer.InferenceEngine.Infer[TReturn](IVariable var)
+   場所 WWWPaper.CBCC.Infer(Int32[][] taskIndices, Int32[][] workerLabels, BCCPosteriors priors)
+   場所 WWWPaper.Results.RunBCC(String modelName, IList`1 data, IList`1 fullData, BCC model, RunMode mode, Boolean calculateAccuracy, Int32 numCommunities, Boolean serialize, Boolean serializeCommunityPosteriors)
+   場所 WWWPaper.Program.RunGold(String dataSet, RunType runType, BCC model, Int32 communityCount)
+   場所 WWWPaper.Program.RunFullGold(Int32 startIndex, Int32 endIndex)
+   場所 WWWPaper.Program.Main(String[] args)
+Method: CBCC_C=4, Overall Accuracy: ERROR, Biased Accuracy: ERROR
