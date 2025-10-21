@@ -13,7 +13,7 @@ import attr
 import numpy as np
 import pandas as pd
 
-from methods.dawid_skene_crowdkit_v140 import DawidSkene
+from dawid_skene_crowdkit_v140 import DawidSkene
 from crowdkit.aggregation.base import BaseClassificationAggregator
 from crowdkit.aggregation.utils import get_most_probable_labels, named_series_attrib
 

@@ -55,7 +55,8 @@ class CBCC():
         # Save to fixed path
         cf_path = os.path.dirname(__file__) + "/CBCC/Data/CF.csv"
         csv.to_csv(cf_path, index=False, header=False)
-        exe_path = os.path.dirname(__file__) + f"/CBCC/CBCC_detail.exe"
+        exe_path = os.path.dirname(__file__) + f"/CBCC/CBCC.exe"
+        print(exe_path)
         # Run CBCC
         subprocess.run([exe_path, str(seed), str(self.C)], cwd=os.path.dirname(__file__) + "/CBCC/")
         # Read result

@@ -6,9 +6,8 @@ from crowdkit.aggregation import DawidSkene, GLAD, OneCoinDawidSkene
 DIR_PATH = os.path.dirname(os.path.abspath(__file__))
 
 sys.path.append(f"{DIR_PATH}/../methods")
-
-from shemha import SHEMHA, SeparatedBDS
-from shemha_em import ShemhaEM
+from hsds_stan import SeparatedBDS, HSDS_Stan
+from hsds_em import HSDS_EM
 
 class AggregationMethod:
 
@@ -74,12 +73,12 @@ def get_BDS_instance(labels, iter_warmup, iter_sampling, r):
         infer_params=infer_params,
     )
 
-def get_SHEMHA_instance(labels, iter_warmup, iter_sampling, r):
+def get_HSDS_Stan_instance(labels, iter_warmup, iter_sampling, r):
     infer_params = {
         "iter_warmup": iter_warmup,
         "iter_sampling": iter_sampling,
     }
-    return SHEMHA(
+    return HSDS_Stan(
         labels=labels,
         algorithm="mcmc",
         init_worker_accuracy=r,
@@ -91,19 +90,19 @@ def get_aggregation_methods(labels, r=0.75, n_iter=100000):
         AggregationMethod("EMDS", False, True, DawidSkene(n_iter=n_iter)),
         AggregationMethod("GLAD", False, True, GLAD(n_iter=n_iter)),
         AggregationMethod("OneCoinDS", False, True, OneCoinDawidSkene(n_iter=n_iter)),
-        AggregationMethod("TwoStep-EM", True, True, ShemhaEM(n_iter=n_iter, r=r)),
+        AggregationMethod("HSDS_EM", True, True, HSDS_EM(n_iter=n_iter, r=r)),
         AggregationMethod("BDS(iter_sampling=1000)", True, False,
                           get_BDS_instance(labels, iter_warmup=500, iter_sampling=1000, r=r)),
         AggregationMethod("BDS(iter_sampling=2000)", True, False,
                           get_BDS_instance(labels, iter_warmup=1000, iter_sampling=2000, r=r)),
         AggregationMethod("BDS(iter_sampling=3000)", True, False,
                           get_BDS_instance(labels, iter_warmup=1500, iter_sampling=3000, r=r)),
-        AggregationMethod("Two-Step-MCMC(iter_sampling=1000)", True, False,
-                          get_SHEMHA_instance(labels, iter_warmup=500//2, iter_sampling=1000//2, r=r)),
-        AggregationMethod("Two-Step-MCMC(iter_sampling=2000)", True, False,
-                          get_SHEMHA_instance(labels, iter_warmup=1000//2, iter_sampling=2000//2, r=r)),
-        AggregationMethod("Two-Step-MCMC(iter_sampling=3000)", True, False,
-                          get_SHEMHA_instance(labels, iter_warmup=1500//2, iter_sampling=3000//2, r=r)),
+        AggregationMethod("HSDS_MCMC(iter_sampling=1000)", True, False,
+                          get_HSDS_Stan_instance(labels, iter_warmup=500//2, iter_sampling=1000//2, r=r)),
+        AggregationMethod("HSDS_MCMC(iter_sampling=2000)", True, False,
+                          get_HSDS_Stan_instance(labels, iter_warmup=1000//2, iter_sampling=2000//2, r=r)),
+        AggregationMethod("HSDS_MCMC(iter_sampling=3000)", True, False,
+                          get_HSDS_Stan_instance(labels, iter_warmup=1500//2, iter_sampling=3000//2, r=r)),
     ]
 # %%
 """

@@ -11,9 +11,10 @@ SEEDS = [12347, 77777, 2984, 298, 1102644]
 
 from agg_methods_cbcc import AggregationMethod, get_aggregation_methods_CBCC
 from scenario import create_ai_dataset
-from io_utils import get_save_file_path, update_save_file, get_accuracy, get_biased_accuracy, load_dataset_profile, load_gt, load_human_responses
+from io_utils import get_save_file_path, update_save_file, get_accuracy, get_recall, load_dataset_profile, load_gt, load_human_responses
 
 exp_df = pd.read_csv(f"{DIR_PATH}/exp.csv")
+os.makedirs(f"{DIR_PATH}/results_cbcc", exist_ok=True)
 
 exp_params_list = exp_df.to_dict(orient="records")
 
@@ -28,7 +29,7 @@ def get_save_file_path_CBCC(dataset_profile, exp_params):
     if os.path.exists(file_name):
         assert False, "File already exists"
     with open(file_name, "w") as f:
-        f.write("dataset,scenario,method,ai_acc,r,num_ai,iter,convergence,accuracy,biased_accuracy,uc_p,")
+        f.write("dataset,scenario,method,ai_acc,r,num_ai,iter,convergence,accuracy,recall,uc_p,")
         for i in range(n_classes):
             f.write(f"uc_pih_{i},")
         for i in range(n_classes-1):
@@ -62,18 +63,20 @@ for exp_params in exp_params_list:
                     try:                
                         ret = method.fit_predict(human, ai, seed=SEEDS[iter])
                         overall_accuracy = get_accuracy(ret, gt)
-                        biased_accuracy = get_biased_accuracy(ret, gt, biased_tasks)
+                        recall = get_recall(ret, gt, biased_tasks)
                         uc_text = method.get_uc_text(dataset_profile["n_classes"])
                         update_save_file(file_path, exp_params, method.name, exp_params["ai_acc"], r, num_ai,
-                                        iter, method.is_converged(), overall_accuracy, biased_accuracy, uc_text)
-                        print(f"Method: {method.name}, Overall Accuracy: {overall_accuracy}, Biased Accuracy: {biased_accuracy}")
+                                        iter, method.is_converged(), overall_accuracy, recall, uc_text)
+                        print(f"Method: {method.name}, Overall Accuracy: {overall_accuracy}, Recall: {recall}")
                     except Exception as e:
+                        print(f"Error in method {method.name}: {e}")
                         uc_text = method.get_uc_text(dataset_profile["n_classes"])
                         update_save_file(file_path, exp_params, method.name, exp_params["ai_acc"], r, num_ai,
                                         iter, method.is_converged(), -1, -1, uc_text)
-                        print(f"Method: {method.name}, Overall Accuracy: ERROR, Biased Accuracy: ERROR")
+                        print(f"Method: {method.name}, Overall Accuracy: ERROR, Recall: ERROR")
             if num_ai == exp_params["max_ai_num"]:
                 print(f"Reached maximum number of AI workers: {num_ai}")
                 break
-    except Exception:
+    except Exception as e:
+        print(f"Error occurred: {e}")
         continue

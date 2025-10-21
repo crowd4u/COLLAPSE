@@ -18,7 +18,7 @@ def get_save_file_path(dataset_profile, exp_params):
     if os.path.exists(file_name):
         assert False, "File already exists"
     with open(file_name, "w") as f:
-        f.write("dataset,scenario,method,ai_acc,r,num_ai,iter,convergence,accuracy,biased_accuracy,uc_p,")
+        f.write("dataset,scenario,method,ai_acc,r,num_ai,iter,convergence,accuracy,recall,uc_p,")
         for i in range(n_classes):
             f.write(f"uc_pih_{i},")
         for i in range(n_classes-1):
@@ -27,9 +27,9 @@ def get_save_file_path(dataset_profile, exp_params):
         f.write("\n")
     return file_name
 
-def update_save_file(file_path, exp_params, method, ai_acc, r, num_ai, iter, convergence, accuracy, biased_accuracy, uc_text):
+def update_save_file(file_path, exp_params, method, ai_acc, r, num_ai, iter, convergence, accuracy, recall, uc_text):
     with open(file_path, "a") as f:
-        f.write(f"{exp_params['dataset']},{exp_params['scenario']},{method},{ai_acc},{r},{num_ai},{iter},{convergence},{accuracy},{biased_accuracy},{uc_text}\n")
+        f.write(f"{exp_params['dataset']},{exp_params['scenario']},{method},{ai_acc},{r},{num_ai},{iter},{convergence},{accuracy},{recall},{uc_text}\n")
 
 def get_accuracy(ret, gt):
     y_true = gt.sort_index().astype(str)
@@ -37,7 +37,7 @@ def get_accuracy(ret, gt):
     acc = accuracy_score(y_true, y_pred)
     return acc
 
-def get_biased_accuracy(ret, gt, biased_tasks):
+def get_recall(ret, gt, biased_tasks):
     return get_accuracy(
         ret.loc[biased_tasks],
         gt.loc[biased_tasks]
