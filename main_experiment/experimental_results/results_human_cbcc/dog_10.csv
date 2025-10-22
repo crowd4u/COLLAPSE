@@ -1,4 +1,4 @@
-dataset,scenario,method,ai_acc,r,num_ai,iter,convergence,accuracy,biased_accuracy,uc_p,uc_pih_0,uc_pih_1,uc_pih_2,uc_pih_3,uc_pia_0,uc_pia_1,uc_pia_2,uc_pia_3
+dataset,scenario,method,ai_acc,r,num_ai,iter,convergence,accuracy,recall,uc_p,uc_pih_0,uc_pih_1,uc_pih_2,uc_pih_3,uc_pia_0,uc_pia_1,uc_pia_2,uc_pia_3
 dog,*,CBCC_C=2,*,10,0,0,-1,0.8066914498141264,0.8313953488372093,-1,-1,-1,-1,-1,-1,-1,-1,-1
 dog,*,CBCC_C=4,*,10,0,0,-1,0.8079306071871127,0.8546511627906976,-1,-1,-1,-1,-1,-1,-1,-1,-1
 dog,*,CBCC_C=8,*,10,0,0,-1,0.8364312267657993,0.8837209302325582,-1,-1,-1,-1,-1,-1,-1,-1,-1

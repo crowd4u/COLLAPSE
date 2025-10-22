@@ -1,4 +1,4 @@
-dataset,scenario,method,ai_acc,r,num_ai,iter,convergence,accuracy,biased_accuracy,uc_p,uc_pih_0,uc_pih_1,uc_pih_2,uc_pih_3,uc_pia_0,uc_pia_1,uc_pia_2,uc_pia_3
+dataset,scenario,method,ai_acc,r,num_ai,iter,convergence,accuracy,recall,uc_p,uc_pih_0,uc_pih_1,uc_pih_2,uc_pih_3,uc_pia_0,uc_pia_1,uc_pia_2,uc_pia_3
 dog,*,EMDS,*,3,0,0,-1,0.7682775712515489,0.7732558139534884,-1,-1,-1,-1,-1,-1,-1,-1,-1
 dog,*,GLAD,*,3,0,0,-1,0.7695167286245354,0.7906976744186046,-1,-1,-1,-1,-1,-1,-1,-1,-1
 dog,*,OneCoinDS,*,3,0,0,-1,0.7794299876084263,0.7965116279069767,-1,-1,-1,-1,-1,-1,-1,-1,-1
