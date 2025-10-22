@@ -22,9 +22,7 @@ RUN python3 -c 'import cmdstanpy; cmdstanpy.install_cmdstan(version="2.32.2")'
 
 RUN pip install crowd-kit==1.3.0.post0 ipywidgets
 RUN pip install polars==1.19.0
+RUN pip install streamlit==1.32.2
 
 # Set working directory
 WORKDIR /app
-
-# Copy the contents of the host directory to the container
-COPY . /app
