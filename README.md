@@ -17,7 +17,7 @@ $ docker compose up -d
 $ docker exec -it collaps bash
 $ python main_experiment/exp.py
 ```
-Note: CBCC cannot be run in a Windows environment, so please run `exp_cbcc.py` on a Windows PC.
+Note: CBCC cannot be run in a non-Windows environment, so please run `exp_cbcc.py` on a Windows PC.
 
 #### Visualize Results
 We obtained a total of 38,125 lines of experimental results and provide a visualization tool to analyze them.
