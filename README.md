@@ -6,7 +6,10 @@ This repository provides supplementary material for the paper "On Aggregating La
 Please see `appendix.pdf`
 
 ## Methods
-The `methods` folder contains code for BDS, HS-DS, and CBCC in Crowd-Kit format. Some of the code uses Crowd-Kit code under license. We would like to express our gratitude to the Crowd-Kit team.
+The `methods` folder contains code for BDS, HS-DS, and CBCC in Crowd-Kit format.
+
+Some of the code uses Crowd-Kit code under license. We would like to express our gratitude to the Crowd-Kit team.
+Additionally, we have made minimal modifications to the original CBCC code by the authors and included it in this repository. We would also like to express our gratitude to the authors of the CBCC code.
 
 ## Main Experiment
 We provide a Docker container for easy reproduction.
@@ -19,7 +22,7 @@ $ python main_experiment/exp.py
 ```
 Note: CBCC cannot be run in a non-Windows environment, so please run `exp_cbcc.py` on a Windows PC.
 
-#### Visualize Results
+### Visualize Results
 We obtained a total of 38,125 lines of experimental results and provide a visualization tool to analyze them.
 
 ```sh
