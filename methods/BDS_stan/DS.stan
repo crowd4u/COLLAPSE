@@ -1,4 +1,4 @@
-// This code is copy of the original BDS code distributed below.
+// This code is copy of the original BDS code distributed below with minimal changes.
 // https://aclanthology.org/Q18-1040.pdf
 
 data {
