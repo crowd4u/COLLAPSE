@@ -78,7 +78,7 @@ The `additional_methods` folder contains implementations of various aggregation 
 ### Human and AI Data
 The human data is `human_responses_with_gt.csv`
 
-The AI's response data is stored in `AI_responses`.
+The AI's response data is stored in `ai_responses`.
 
 If you need to regenerate the AI's response data, please run the following command.
 ```sh
