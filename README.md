@@ -17,7 +17,7 @@ We provide a Docker container for easy reproduction.
 ### Re-Run this experiment
 ```sh
 $ docker compose up -d
-$ docker exec -it collaps bash
+$ docker exec -it collapse bash
 $ python main_experiment/exp.py
 ```
 Note: CBCC cannot be run in a non-Windows environment, so please run `exp_cbcc.py` on a Windows PC.
@@ -27,7 +27,7 @@ We obtained a total of 38,125 lines of experimental results and provide a visual
 
 ```sh
 $ docker compose up -d
-$ docker exec -it collaps bash
+$ docker exec -it collapse bash
 $ cd main_experiment/streamlit
 $ streamlit run app.py --server.port 9999
 ```
