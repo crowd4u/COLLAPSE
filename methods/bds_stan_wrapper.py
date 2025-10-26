@@ -55,12 +55,14 @@ class BDS():
         q_z_values = r_hat['q_z'].values
         pi_above = len(r_hat['pi'].values[r_hat['pi'].values > threshold])
         print(f"pi (r_hat > {threshold}):", pi_above)
+        self.uc_count_bds = pi_above
         if pi_above > 0:
             convergence = False
         print(f"q_z:")
         for i in range(q_z_values.shape[1]):  
             q_z_above = len(q_z_values[:, i][q_z_values[:, i] > threshold])
             print(f"\tClass {i} (r_hat > {threshold}):", q_z_above)
+            self.uc_count_bds += q_z_above
             if q_z_above > 0:
                 convergence = False
         return convergence

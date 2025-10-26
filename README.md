@@ -89,6 +89,13 @@ python generate_ai_responses.py
 ```
 
 ### Re-Run the additinal Experiment
+Each method uses a different environment, notebook, and script. You will need to properly configure the file paths to match your execution environment.
+
+#### EMDS, OneCoin, GLAD, MACE, MMSR (, MV)
+Run `notebooks\evaluate_crowdkit.ipynb` in the container.
+
+#### CBCC
+Run `notebooks\evaluate_CBCC.ipynb` on Windows computer.
 
 #### CATD, LFC, PM-CRH, ZC, LA, Minmax
 
@@ -96,9 +103,13 @@ python generate_ai_responses.py
 2. Set up a Python 2.7 execution environment on Windows PC and activate the env.
 3. Install the libraries listed in `scripts/requirements.txt`.
 4. Run `scripts/***.bat` in the `scripts` folder.
-5. For running Minmax, you have to use MATLAB (paid)  or MATLAB online (free).
+5. For running Minmax, you have to use MATLAB (paid) or MATLAB online (free).
 6. Run `additinal_methods/l_minimax-s/prepare.m` using MATLAB with `truth_infer_0_.csv`, and `truth_infer_5_.csv` and `truth_infer_10_.csv`.
-7. Using `notebooks/evaluate_truth_infer.ipynb`, calculate the scores.
+7. Using `notebooks/evaluate_truth_infer.ipynb`, calculate the scores (on Python 3 env).
+
+#### BDS, HS-DS
+Run `notebooks\evaluate_bds_hsds.ipynb` in the container.
+
 
 
 
