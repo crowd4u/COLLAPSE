@@ -9,7 +9,7 @@ from ai_simulator import generate_ai_dataset
 
 np.random.seed(777)
 
-df = pd.read_csv("human_responces_with_gt.csv", 
+df = pd.read_csv("human_responses_with_gt.csv", 
                  dtype={"task" : str, "worker" :str ,"label" : str ,"gt" : int})
 
 gt = df.filter(["task","gt"]).drop_duplicates(keep='last').set_index("task")
