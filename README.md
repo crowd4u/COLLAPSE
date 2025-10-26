@@ -14,6 +14,8 @@ Additionally, we have made minimal modifications to the original CBCC code by th
 ## Main Experiment
 We provide a Docker container for easy reproduction.
 
+FYI: You can use jupyter lab on `http://localhost:8008/` when running this container (Please check the token following command `docker exec -it collapse jupyter server list`).
+
 ### Re-Run this experiment with the same data of the paper
 ```sh
 $ docker compose up -d
@@ -21,6 +23,8 @@ $ docker exec -it collapse bash
 $ python main_experiment/exp.py
 ```
 Note: CBCC cannot be run in a non-Windows environment, so please run `exp_cbcc.py` on a Windows PC.
+
+However, data containing only human worker results (with `num_ai=0`) cannot be generated using this method. Please run `notebooks/human_only_results.ipynb` and `notebooks/human_only_results_cbcc.ipynb`.
 
 ### Data Preprocessing
 For reproducibility, we provide the code used to process and generate human and AI responses in the `preprocessing` folder.
@@ -56,7 +60,8 @@ Please visit http://localhost:9009/ to use this app.
 
 ### Case Studies
 We provide a notebook that allows you to reproduce the case studies performed in our paper.
- - 
+ - aa
+ - bb
 
 ## Additinal Experiment (Evaluation with Empirical Asymmetric AI Performance)
 We provide human and AI response data, the code that generates the AI ​​responses, and a CSV of the raw experiment results.
