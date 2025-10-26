@@ -85,7 +85,7 @@ If you need to regenerate the AI's response data, please run the following comma
 $ docker compose up -d
 $ docker exec -it collapse bash
 $ cd additinal_experiment
-python generate_ai_responses.py
+$ python generate_ai_responses.py
 ```
 
 ### Re-Run the additinal Experiment
