@@ -14,13 +14,33 @@ Additionally, we have made minimal modifications to the original CBCC code by th
 ## Main Experiment
 We provide a Docker container for easy reproduction.
 
-### Re-Run this experiment
+### Re-Run this experiment with the same data of the paper
 ```sh
 $ docker compose up -d
 $ docker exec -it collapse bash
 $ python main_experiment/exp.py
 ```
 Note: CBCC cannot be run in a non-Windows environment, so please run `exp_cbcc.py` on a Windows PC.
+
+### Data Preprocessing
+For reproducibility, we provide the code used to process and generate human and AI responses in the `preprocessing` folder.
+
+If you want to reproduce the experiment from the data generation process, you can regenerate the data using the following command.
+```sh
+$ docker compose up -d
+$ docker exec -it collapse bash
+$ cd main_experiment/preprocessing
+$ python generate_human_responses.py
+$ python generate_ai_responses.py
+```
+
+The `preprocessing/raw_datasets` directory contains the raw datasets before redundancy adjustment.
+These data were copied from the following publicly available data sources (excluding `Tiny`).
+
+ - `Dog` : https://github.com/zhydhkcws/crowd_truth_infer/tree/master/datasets/s4_Dog%20data
+ - `Face` : https://github.com/zhydhkcws/crowd_truth_infer/tree/master/datasets/s4_Face%20Sentiment%20Identification
+  - `Tiny` : We firstly published online.
+  - `Adult` : It was available at https://toloka.ai/datasets/ as `Toloka Aggregation Features`, but is no longer distributed.
 
 ### Visualize Results
 We obtained a total of 38,125 lines of experimental results and provide a visualization tool to analyze them.
@@ -34,8 +54,9 @@ $ streamlit run app.py --server.port 9999
 
 Please visit http://localhost:9009/ to use this app.
 
-### Data Preprocessing
-For reproducibility, we provide the code used to process and generate human and AI responses in the `preprocessing` folder.
+### Case Studies
+We provide a notebook that allows you to reproduce the case studies performed in our paper.
+ - 
 
 ## Additinal Experiment (Evaluation with Empirical Asymmetric AI Performance)
 We provide human and AI response data, the code that generates the AI ​​responses, and a CSV of the raw experiment results.
