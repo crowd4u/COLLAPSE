@@ -65,15 +65,44 @@ We provide a notebook that allows you to re-run the case studies performed in ou
  - Communities of CBCC (Figure 7): `notebooks\CBCC_analysis.ipynb`
 
 ## Additinal Experiment (Evaluation with Empirical Asymmetric AI Performance)
-We provide human and AI response data, the code that generates the AI ​​responses, and a CSV of the raw experiment results.
+Our experimental results can be found in `results`.
 
-Implementations of each aggregation method used in the experiments are available below.
+### Methods
+The `additional_methods` folder contains implementations of various aggregation methods, copied from the following repositories with minimal modifications.
 
 | Method                                       | Link                                           |
 |----------------------------------------------|------------------------------------------------|
-| BDS, HS-DS, CBCC                             | This repository                                |
-| DS, GLAD, MACE, MMSR, OneCoin (, MV)         | https://github.com/Toloka/crowd-kit            |
-| CATD, LFC, Minmax, PM-CRH, ZenCrowd (, CBCC) | https://github.com/zhydhkcws/crowd_truth_infer |
+| CATD, LFC, Minmax, PM-CRH, ZC                | https://github.com/zhydhkcws/crowd_truth_infer |
 | LA                                           | https://github.com/yyang318/LA_onepass         |
+
+### Human and AI Data
+The human data is `human_responses_with_gt.csv`
+
+The AI's response data is stored in `AI_responses`.
+
+If you need to regenerate the AI's response data, please run the following command.
+```sh
+$ docker compose up -d
+$ docker exec -it collapse bash
+$ cd additinal_experiment
+python generate_ai_responses.py
+```
+
+### Re-Run the additinal Experiment
+
+#### CATD, LFC, PM-CRH, ZC, LA, Minmax
+
+1. Run `notebooks\transform_to_truth_infer_format.ipynb`
+2. Set up a Python 2.7 execution environment on Windows PC and activate the env.
+3. Install the libraries listed in `scripts/requirements.txt`.
+4. Run `scripts/***.bat` in the `scripts` folder.
+5. For running Minmax, you have to use MATLAB (paid)  or MATLAB online (free).
+6. Run `additinal_methods/l_minimax-s/prepare.m` using MATLAB with `truth_infer_0_.csv`, and `truth_infer_5_.csv` and `truth_infer_10_.csv`.
+7. Using `notebooks/evaluate_truth_infer.ipynb`, calculate the scores.
+
+
+
+
+
 
 

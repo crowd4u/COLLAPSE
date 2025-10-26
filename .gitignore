@@ -376,3 +376,6 @@ methods/HSDS_stan/step2.hpp
 methods/HSDS_stan/step2
 methods/HSDS_stan/step1.hpp
 methods/HSDS_stan/step1
+additinal_experiment/scripts/truth_infer_0.csv
+additinal_experiment/scripts/truth_infer_5.csv
+additinal_experiment/scripts/truth_infer_10.csv
