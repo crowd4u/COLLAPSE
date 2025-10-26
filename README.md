@@ -61,8 +61,8 @@ Please visit http://localhost:9009/ to use this app.
 ### Case Studies
 We provide a notebook that allows you to re-run the case studies performed in our paper.
 
- - Confusion Matrices (Figure 6) : `main_experiment\notebooks\cm_analysis.ipynb`
- - Communities of CBCC (Figure 7): `main_experiment\notebooks\CBCC_analysis.ipynb`
+ - Confusion Matrices (Figure 6) : `notebooks\cm_analysis.ipynb`
+ - Communities of CBCC (Figure 7): `notebooks\CBCC_analysis.ipynb`
 
 ## Additinal Experiment (Evaluation with Empirical Asymmetric AI Performance)
 We provide human and AI response data, the code that generates the AI ​​responses, and a CSV of the raw experiment results.
