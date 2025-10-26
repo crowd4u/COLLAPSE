@@ -22,7 +22,7 @@ $ docker compose up -d
 $ docker exec -it collapse bash
 $ python main_experiment/exp.py
 ```
-Note: CBCC cannot be run in a non-Windows environment, so please run `exp_cbcc.py` on a Windows PC.
+Note: CBCC cannot be run in a non-Windows environment, so please run `exp_cbcc.py` on a Windows PC. We used `Python 3.11.3` with the libraries listed in `requirements_python3_win.txt`.
 
 However, data containing only human worker results (with `num_ai=0`) cannot be generated using this method. Please run `notebooks/human_only_results.ipynb` and `notebooks/human_only_results_cbcc.ipynb`.
 
@@ -99,13 +99,15 @@ Run `notebooks\evaluate_CBCC.ipynb` on Windows computer.
 
 #### CATD, LFC, PM-CRH, ZC, LA, Minmax
 
-1. Run `notebooks\transform_to_truth_infer_format.ipynb`
-2. Set up a Python 2.7 execution environment on Windows PC and activate the env.
-3. Install the libraries listed in `scripts/requirements.txt`.
-4. Run `scripts/***.bat` in the `scripts` folder.
-5. For running Minmax, you have to use MATLAB (paid) or MATLAB online (free).
-6. Run `additinal_methods/l_minimax-s/prepare.m` using MATLAB with `truth_infer_0_.csv`, and `truth_infer_5_.csv` and `truth_infer_10_.csv`.
-7. Using `notebooks/evaluate_truth_infer.ipynb`, calculate the scores (on Python 3 env).
+1. Run `notebooks\transform_to_truth_infer_format.ipynb` in the container.
+2. Set up a Python 2.7.13 execution environment on Windows PC and activate the venv.
+3. Install the libraries listed in `requirements_python27_win.txt` (in the project root).
+4. Run `scripts/***.bat` in the `scripts` folder except for `LA.bat`.
+5. Deactivate the python2 venv.
+5. Run `scripts/LA.bat` in the `scripts` folder in the python3 windows venv for CBCC.
+6. For running Minmax, you have to use MATLAB (paid) or MATLAB online (free).
+7. Run `additinal_methods/l_minimax-s/prepare.m` using MATLAB with `truth_infer_0_.csv`, and `truth_infer_5_.csv` and `truth_infer_10_.csv`.
+8. Using `notebooks/evaluate_truth_infer.ipynb`, calculate the scores in the container.
 
 #### BDS, HS-DS
 Run `notebooks\evaluate_bds_hsds.ipynb` in the container.
