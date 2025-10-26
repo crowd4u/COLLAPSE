@@ -97,6 +97,8 @@ Run `notebooks\evaluate_crowdkit.ipynb` in the container.
 #### CBCC
 Run `notebooks\evaluate_CBCC.ipynb` on Windows computer.
 
+We used `Python 3.11.3` with the libraries listed in `requirements_python3_win.txt`.
+
 #### CATD, LFC, PM-CRH, ZC, LA, Minmax
 
 1. Run `notebooks\transform_to_truth_infer_format.ipynb` in the container.
@@ -111,11 +113,3 @@ Run `notebooks\evaluate_CBCC.ipynb` on Windows computer.
 
 #### BDS, HS-DS
 Run `notebooks\evaluate_bds_hsds.ipynb` in the container.
-
-
-
-
-
-
-
-
