@@ -50,9 +50,12 @@ Therefore, we provide a case study of the effect of varying $\tau$ in a specific
 
 The following shows the results for BDS and HS-DS on the Dog dataset, with $r=5$ and $a_{AI}=\mu$, for different values of $\tau$.
 
-<img width="743" height="321" alt="homo_acc" src="https://github.com/user-attachments/assets/8c3911bb-e5cd-4ac5-96cf-a14fe3f42616" />
-<img width="743" height="321" alt="homo_recall" src="https://github.com/user-attachments/assets/bea262e2-6db4-4cb6-9222-df0e8687973b" />
-<img width="743" height="321" alt="hetero_acc" src="https://github.com/user-attachments/assets/0eb1cf58-a646-41f6-8be3-324749c72ddc" />
-<img width="743" height="321" alt="hetero_recall" src="https://github.com/user-attachments/assets/37bf9ef8-99f5-4ecf-ba0e-79b2c905310a" />
+
+<img width="743" height="321" alt="homo_acc" src="https://github.com/user-attachments/assets/d6d615bf-3284-467f-adab-d02f0c6a4e98" />
+<img width="743" height="321" alt="homo_recall" src="https://github.com/user-attachments/assets/71745963-05d8-4690-a859-b306abfd3863" />
+<img width="743" height="321" alt="hetero_acc" src="https://github.com/user-attachments/assets/a000eff3-68ae-40fd-83ac-621f266365f8" />
+<img width="743" height="321" alt="hetero_recall" src="https://github.com/user-attachments/assets/b741b25c-9a11-4088-897c-ed625d7f8e05" />
 
 The results show that the experimental outcomes follow a similar trend regardless of the value of $\tau$ (although an extremely high value, such as $\tau=0.95$, causes a decrease in performance in the homo scenario).
+
+This result can be reproduced by changing `init_worker_accuracy` and running the part of the main experiment.
