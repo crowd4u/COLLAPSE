@@ -178,13 +178,13 @@ class HSDS_Stan():
             "ya" : ya,
             "r" : self.init_worker_accuracy,
         }
-        # For SeparatedBDS
-        # ===========
         if self.step1_done:
             init_data = {
                 "p" : self.step1_p,
                 "pih" : self.step1_pih,
             }
+        # For SeparatedBDS
+        # ===========
         else:
             print("Warning: STEP1 has not been executed. Use no init_data.")
             #self.convergence_step1 = True
