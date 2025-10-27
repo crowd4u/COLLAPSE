@@ -2,12 +2,6 @@
 
 This repository provides supplementary material for the paper "Aggregating Labels from Humans and AIs with Asymmetric Performance," currently under peer review.
 
-## Methods
-The `methods` folder contains code for BDS, HS-DS, and CBCC in Crowd-Kit format.
-
-Some of the code uses Crowd-Kit code under license. We would like to express our gratitude to the Crowd-Kit team.
-Additionally, we have made minimal modifications to the original CBCC code by the authors and included it in this repository. We would also like to express our gratitude to the authors of the CBCC code.
-
 ## Main Experiment
 We provide a Docker container for easy reproduction.
 
@@ -19,7 +13,9 @@ $ docker compose up -d
 $ docker exec -it collapse bash
 $ python main_experiment/exp.py
 ```
-Note: CBCC cannot be run in a non-Windows environment, so please run `exp_cbcc.py` on a Windows PC. We used `Python 3.11.3` with the libraries listed in `requirements_python3_win.txt`.
+**Note: It will take 2-3 weeks until all the experiments are completed (because it requires over 30,000 runs).**
+
+CBCC cannot be run in a non-Windows environment, so please run `exp_cbcc.py` on a Windows PC. We used `Python 3.11.3` with the libraries listed in `requirements_python3_win.txt`.
 
 However, data containing only human worker results (with `num_ai=0`) cannot be generated using this method. Please run `notebooks/human_only_results.ipynb` and `notebooks/human_only_results_cbcc.ipynb`.
 
@@ -110,3 +106,11 @@ We used `Python 3.11.3` with the libraries listed in `requirements_python3_win.t
 
 #### BDS, HS-DS
 Run `notebooks\evaluate_bds_hsds.ipynb` in the container.
+
+## BDS / HS-DS implementations
+The `methods` folder contains code for BDS, HS-DS, and CBCC in Crowd-Kit format.
+
+Please read `prior_distributions.md` in the project root directory for information on prior distributions.
+
+Some of the code uses Crowd-Kit code under license. We would like to express our gratitude to the Crowd-Kit team.
+Additionally, we have made minimal modifications to the original CBCC code by the authors and included it in this repository. We would also like to express our gratitude to the authors of the CBCC code.
