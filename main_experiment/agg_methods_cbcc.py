@@ -62,9 +62,9 @@ class AggregationMethod:
 
 def get_aggregation_methods_CBCC(labels, r=0.75, n_iter=100000):
     return [
-        AggregationMethod("CBCC_C=2", False, True, CBCC(labels, C=2)),
-        AggregationMethod("CBCC_C=4", False, True, CBCC(labels, C=4)),
-        AggregationMethod("CBCC_C=8", False, True, CBCC(labels, C=8)),
+        AggregationMethod("CBCC_M=2", False, True, CBCC(labels, C=2)),
+        AggregationMethod("CBCC_M=4", False, True, CBCC(labels, C=4)),
+        AggregationMethod("CBCC_M=8", False, True, CBCC(labels, C=8)),
     ]
 # %%
 """
