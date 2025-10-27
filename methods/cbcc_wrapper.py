@@ -31,7 +31,7 @@ class CBCC():
     def __init__(self, labels, C=4) -> None:
         self.labels = labels    
         self.K = len(labels)
-        self.C = C
+        self.C = C # in paper, C is $M$. 
         print("CAUTION: DO NOT EXECUTE THIS PROGRAM DUPULICATELY. \n BECAUSE IT USES FIXED FILE PATH.")
 
     def fit_predict(self, data: pd.DataFrame, seed=12347) -> pd.Series:
