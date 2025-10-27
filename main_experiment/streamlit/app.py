@@ -17,9 +17,9 @@ METHODS = {
     "EMDS": "black",
     "OneCoinDS": "pink",
     "GLAD": "green",
-    "CBCC_C=2" : "yellow",
-    "CBCC_C=4" : "orange",
-    "CBCC_C=8" : "darkorange",
+    "CBCC_M=2" : "yellow",
+    "CBCC_M=4" : "orange",
+    "CBCC_M=8" : "darkorange",
 }
 
 st.title("Interactive Results Viewer for the Main Experiment")

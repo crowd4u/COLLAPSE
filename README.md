@@ -1,6 +1,6 @@
-# On Aggregating Labels from Humans and AIs with Asymmetric Performance
+# Aggregating Labels from Humans and AIs with Asymmetric Performance
 
-This repository provides supplementary material for the paper "On Aggregating Labels from Humans and AIs with Asymmetric Performance," currently under peer review.
+This repository provides supplementary material for the paper "Aggregating Labels from Humans and AIs with Asymmetric Performance," currently under peer review.
 
 ## Appendix of the paper
 Please see `appendix.pdf`
@@ -64,7 +64,7 @@ We provide a notebook that allows you to re-run the case studies performed in ou
  - Confusion Matrices (Figure 6) : `notebooks\cm_analysis.ipynb`
  - Communities of CBCC (Figure 7): `notebooks\CBCC_analysis.ipynb`
 
-## Additinal Experiment (Evaluation with Empirical Asymmetric AI Performance)
+## Additinal Experiment (Evaluation with Observed Asymmetric AI Performance in a Prior Work)
 Our experimental results can be found in `results`.
 
 ### Methods
