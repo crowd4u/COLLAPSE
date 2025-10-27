@@ -2,9 +2,6 @@
 
 This repository provides supplementary material for the paper "Aggregating Labels from Humans and AIs with Asymmetric Performance," currently under peer review.
 
-## Appendix of the paper
-Please see `appendix.pdf`
-
 ## Methods
 The `methods` folder contains code for BDS, HS-DS, and CBCC in Crowd-Kit format.
 
