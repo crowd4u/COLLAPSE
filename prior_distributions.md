@@ -44,7 +44,7 @@ Liu \& Wang define $\Lambda$ using a parameter $\lambda$; in our formulation, th
 In our paper, we used $\tau=0.75$. This corresponds to $\lambda=3n-4$ (note that inference can be run with different values of $\tau$ by changing the argument `init_worker_accuracy` in the implementation available in the repository).
 
 ### The effect of changes in $\tau$.
-While it is expected that changes in the value of $\tau$ will have some influence on the experimental results, it was not feasible to run numerous patterns, considering the time required for the experiments (our complete set of experiments took over two weeks to finish). 
+While it is expected that changes in the value of $\tau$ will have some influence on the experimental results, it was not feasible to run numerous patterns, considering the time required for the experiments (our complete set of experiments took over two weeks to finish). Note that previuos benchmark studies, such as [(Zheng et al. 2017)](https://dl.acm.org/doi/10.14778/3055540.3055547) and [(Paun et al. 2018)](https://aclanthology.org/Q18-1040/), also did not investigate multiple patterns for the prior distributions.
 
 Therefore, we provide a case study of the effect of varying $\tau$ in a specific case as supplementary information. 
 
