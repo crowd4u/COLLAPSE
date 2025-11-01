@@ -16,6 +16,7 @@ $ rm -r results
 $ rm -r results_cbcc
 $ rm -r results_human
 $ rm -r results_human_cbcc
+$ mkdir results results_cbcc results_human results_human_cbcc
 $ python exp.py
 ```
 **Note: It will take 2-3 weeks until all the experiments are completed (because it requires over 30,000 runs).**
