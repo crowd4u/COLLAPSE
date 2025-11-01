@@ -44,10 +44,18 @@ Liu \& Wang define $\Lambda$ using a parameter $\lambda$; in our formulation, th
 In our paper, we used $\tau=0.75$. This corresponds to $\lambda=3n-4$ (note that inference can be run with different values of $\tau$ by changing the argument `init_worker_accuracy` in the implementation available in the repository).
 
 ### The effect of changes in $\tau$.
-While it is expected that changes in the value of $\tau$ will have some influence on the experimental results, it was not feasible to run numerous patterns, considering the time required for the experiments (our complete set of experiments took over two weeks to finish). 
+While it is expected that changes in the value of $\tau$ will have some influence on the experimental results, it was not feasible to run numerous patterns, considering the time required for the experiments (our complete set of experiments took over two weeks to finish). Note that previuos benchmark studies, such as [(Zheng et al. 2017)](https://dl.acm.org/doi/10.14778/3055540.3055547) and [(Paun et al. 2018)](https://aclanthology.org/Q18-1040/), also did not investigate multiple patterns for the prior distributions.
 
 Therefore, we provide a case study of the effect of varying $\tau$ in a specific case as supplementary information. 
 
 The following shows the results for BDS and HS-DS on the Dog dataset, with $r=5$ and $a_{AI}=\mu$, for different values of $\tau$.
 
+
+<img width="743" height="321" alt="homo_acc" src="https://github.com/user-attachments/assets/d6d615bf-3284-467f-adab-d02f0c6a4e98" />
+<img width="743" height="321" alt="homo_recall" src="https://github.com/user-attachments/assets/71745963-05d8-4690-a859-b306abfd3863" />
+<img width="743" height="321" alt="hetero_acc" src="https://github.com/user-attachments/assets/a000eff3-68ae-40fd-83ac-621f266365f8" />
+<img width="743" height="321" alt="hetero_recall" src="https://github.com/user-attachments/assets/b741b25c-9a11-4088-897c-ed625d7f8e05" />
+
 The results show that the experimental outcomes follow a similar trend regardless of the value of $\tau$ (although an extremely high value, such as $\tau=0.95$, causes a decrease in performance in the homo scenario).
+
+This result can be reproduced by changing `init_worker_accuracy` and running the part of the main experiment.
