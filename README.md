@@ -11,7 +11,12 @@ FYI: You can use jupyter lab on `http://localhost:8008/` when running this conta
 ```sh
 $ docker compose up -d
 $ docker exec -it collapse bash
-$ python main_experiment/exp.py
+$ cd main_experiment
+$ rm -r results
+$ rm -r results_cbcc
+$ rm -r results_human
+$ rm -r results_human_cbcc
+$ python exp.py
 ```
 **Note: It will take 2-3 weeks until all the experiments are completed (because it requires over 30,000 runs).**
 
