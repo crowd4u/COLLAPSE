@@ -1,6 +1,3 @@
-// SHEMHA : Stable Hierarchical Estimation Model for Human + AI crowd
-// Step1: Human-only BDS
-
 data {
   int<lower=1> I; //number of items
   int<lower=2> K; //number of classes
