@@ -6,7 +6,7 @@ import polars as pl
 import pandas as pd
 import matplotlib.pyplot as plt
 
-METHODS = {
+METHODS_COLORS = {
     "BDS(iter_sampling=1000)": "lightcoral",
     "BDS(iter_sampling=2000)": "red",
     "BDS(iter_sampling=3000)": "darkred",
@@ -22,6 +22,38 @@ METHODS = {
     "CBCC_M=8" : "darkorange",
 }
 
+METHODS_MARKER = {
+    "EMDS": ".",
+    "OneCoinDS": "o",
+    "GLAD": "s",
+    "BDS(iter_sampling=1000)": "X",
+    "BDS(iter_sampling=2000)": "P",
+    "BDS(iter_sampling=3000)": "D",
+    "CBCC_M=2" : "1",
+    "CBCC_M=4" : "2",
+    "CBCC_M=8" : "3",
+    "HSDS_EM": "p",
+    "HSDS_MCMC(iter_sampling=1000)": "^",
+    "HSDS_MCMC(iter_sampling=2000)": "<",
+    "HSDS_MCMC(iter_sampling=3000)": ">",
+}
+
+METHODS_RENAME = {
+    "EMDS": "DS$_\quad$",
+    "OneCoinDS": "OneCoin$_\quad$",
+    "GLAD": "GLAD",
+    "BDS(iter_sampling=1000)": "BDS$_{s=1000}$",
+    "BDS(iter_sampling=2000)": "BDS$_{s=2000}$",
+    "BDS(iter_sampling=3000)": "BDS$_{s=3000}$",
+    "CBCC_M=2" : "CBCC$_{M=2}$",
+    "CBCC_M=4" : "CBCC$_{M=4}$",
+    "CBCC_M=8" : "CBCC$_{M=8}$",
+    "HSDS_EM": "HS-DS$_{EM}$",
+    "HSDS_MCMC(iter_sampling=1000)": "HS-DS$_{MCMC,s=1000}$",
+    "HSDS_MCMC(iter_sampling=2000)": "HS-DS$_{MCMC,s=2000}$",
+    "HSDS_MCMC(iter_sampling=3000)": "HS-DS$_{MCMC,s=3000}$",
+}
+
 st.title("Interactive Results Viewer for the Main Experiment")
 
 st.markdown("## Configuration")
@@ -34,7 +66,7 @@ f = {
     "adult": 0,
 }
 dfs = {}
-for p in Path("../experimental_results/results").glob("*.csv"):
+for p in Path("../results").glob("*.csv"):
     dataset = p.stem.split("_")[0]
     if f[dataset] == 0:
         dfs[dataset] = pl.read_csv(p, has_header=True, encoding="utf-8")
@@ -43,7 +75,7 @@ for p in Path("../experimental_results/results").glob("*.csv"):
         dfs[dataset] = pl.concat([dfs[dataset], pl.read_csv(p, has_header=True, encoding="utf-8")])
         f[dataset] += 1
 
-for p in Path("../experimental_results/results_cbcc").glob("*.csv"):
+for p in Path("../results_cbcc").glob("*.csv"):
     dataset = p.stem.split("_")[0]
     if f[dataset] == 0:
         dfs[dataset] = pl.read_csv(p, has_header=True, encoding="utf-8")
@@ -70,7 +102,7 @@ for dataset in dfs:
         dfs[dataset] = dfs[dataset].drop(uc_cols)
 
 ## Load human results
-for i,p in enumerate(Path("../experimental_results/results_human").glob("*.csv")):
+for i,p in enumerate(Path("../results_human").glob("*.csv")):
     if i == 0:
         human_df = pl.read_csv(p, has_header=True, encoding="utf-8")
         uc_cols = human_df.columns
@@ -85,7 +117,7 @@ for i,p in enumerate(Path("../experimental_results/results_human").glob("*.csv")
             tmp = tmp.drop(uc_cols)
         human_df = pl.concat([human_df, tmp])
 
-for p in Path("../experimental_results/results_human_cbcc").glob("*.csv"):
+for p in Path("../results_human_cbcc").glob("*.csv"):
     tmp = pl.read_csv(p, has_header=True, encoding="utf-8")
     tmp = tmp.with_columns([
         pl.when(pl.col("accuracy") < 0).then(0).otherwise(pl.col("accuracy")).alias("accuracy"),
@@ -148,7 +180,7 @@ metric = st.selectbox(
 )
 
 compare_target = st.selectbox(
-    "Comparison", ["dataset", "r", "ai_acc", "scenario"]
+    "Comparison", ["scenario", "dataset", "r", "ai_acc"]
 )
 
 st.markdown("Please specify params other than those specified in `Comparison` below.\n")
@@ -159,18 +191,18 @@ dataset = st.selectbox(
 )
 
 if dataset == "dog":
-    r_options = [3,5,10]
+    r_options = [5, 3, 10]
 elif dataset == "face":
-    r_options = [3,5]
+    r_options = [5, 3]
 elif dataset == "tiny":
     r_options = [2]
 elif dataset == "adult":
-    r_options = [3,5]
+    r_options = [5, 3]
 
 r_num = st.selectbox("Number of human workers per task (redundancy; `r` / $r$)", r_options)
 
 ai_acc = st.selectbox(
-    "Performance Level of Biased_AI (`ai_acc` / $a_{AI}$)", ["-sigma", "mean", "+sigma", "max"]
+    "Performance Level of Biased AI (`ai_acc` / $a_{AI}$)", ["mean", "-sigma", "+sigma", "max"]
 )
 
 scenario = st.selectbox(
@@ -228,7 +260,8 @@ figs = []
 chart_data_list = [] 
 
 for i, (fdf, opt) in enumerate(zip(fdfs, options)):
-    fig, ax = plt.subplots(figsize=(5, 3))
+    fig, axs = plt.subplots(1, 3, figsize=(8, 1.5), sharex=True)
+    ax = axs[-1] 
     if fdf.empty:
         chart_data_list.append(None)
         figs.append(fig) 
@@ -236,12 +269,10 @@ for i, (fdf, opt) in enumerate(zip(fdfs, options)):
     
     used_data = []
     
-    for method, color in METHODS.items():
+    for method, color in METHODS_COLORS.items():
         tdf = fdf[fdf["method"] == method]
         if not tdf.empty:
             tdf = tdf.sort_values("num_ai")
-            method_new = method.replace("Two-Step", "HS-DS")
-            method_new = method_new.replace("TwoStep", "HS-DS")
             
             for _, row in tdf.iterrows():
                 used_data.append({
@@ -255,20 +286,24 @@ for i, (fdf, opt) in enumerate(zip(fdfs, options)):
                 tdf["num_ai"], 
                 tdf["mean_recall"] if metric == "recall" else tdf["mean_accuracy"], 
                 yerr=tdf["std_recall"] if metric == "recall" else tdf["std_accuracy"], 
-                label=method_new,
+                label=METHODS_RENAME[method],
                 color=color, 
                 capsize=5,
-                fmt='o-',
+                fmt=f'{METHODS_MARKER[method]}-',
+                markersize=5, linewidth=1.5, alpha=0.6,
             )
     
     chart_data_list.append(pd.DataFrame(used_data) if used_data else None)
     
     ax.set_title(f"{compare_target}: {opt}")        
     ax.set_xlabel("Number of AI Workers")
-    ax.set_ylabel("Recall" if metric == "recall" else "Overall Accuracy")
-    ax.legend(loc='upper left', bbox_to_anchor=(1, 1))
-    ax.set_ylim(-0.1, 1.1)
+    ax.set_ylabel("Recall" if metric == "recall" else "Accuracy")
+    ax.legend(loc='center', bbox_to_anchor=(-0.8, -0.8), fontsize='medium', ncol=5)
+    ax.set_xlabel("#AI Workers ($K_a$)")
+    for axis in axs[:-1]:
+        axis.set_visible(False)
     ax.set_xlim(0, 35)
+    ax.set_ylim(-0.05, 1.05)
     ax.grid(True)
     figs.append(fig)  
 
