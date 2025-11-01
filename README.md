@@ -62,6 +62,7 @@ You can regenerate a part of figures in Figure 5, 8, and 9 by this app.
 We provide a notebook that allows you to re-run the case studies performed in our paper.
 
  - Confusion Matrices (Figure 6) : `notebooks\cm_analysis.ipynb`
+ - Analysis of Convergence (Section 5.1.3) : `notebooks\analysis_convergence.ipynb`
  - Communities of CBCC (Figure 7): `notebooks\CBCC_analysis.ipynb`
 
 ## Additinal Experiment (Evaluation with Observed Asymmetric AI Performance in a Prior Work)
