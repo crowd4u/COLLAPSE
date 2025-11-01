@@ -92,28 +92,31 @@ $ python generate_ai_responses.py
 ### Re-Run the additinal Experiment
 Each method uses a different environment, notebook, and script. You will need to properly configure the file paths to match your execution environment.
 
-#### EMDS, OneCoin, GLAD, MACE, MMSR (, MV)
+#### (1) Run EMDS, OneCoin, GLAD, MACE, MMSR (, MV)
 Run `notebooks\evaluate_crowdkit.ipynb` in the container.
 
-#### CBCC
+#### (2) Run CBCC
 Run `notebooks\evaluate_CBCC.ipynb` on Windows computer.
 
 We used `Python 3.11.3` with the libraries listed in `requirements_python3_win.txt`.
 
-#### CATD, LFC, PM-CRH, ZC, LA, Minmax
+#### (3) Run CATD, LFC, PM-CRH, ZC, LA, Minmax
 
 1. Run `notebooks\transform_to_truth_infer_format.ipynb` in the container.
 2. Set up a Python 2.7.13 execution environment on Windows PC and activate the venv.
 3. Install the libraries listed in `requirements_python27_win.txt` (in the project root).
-4. Run `scripts/***.bat` in the `scripts` folder except for `LA.bat`.
+4. Run `scripts/py27_win.bat` in the `scripts` folder.
 5. Deactivate the python2 venv.
-5. Run `scripts/LA.bat` in the `scripts` folder in the python3 windows venv for CBCC.
+5. Run `scripts/py3_win.bat` in the `scripts` folder in the python3 windows venv for CBCC.
 6. For running Minmax, you have to use MATLAB (paid) or MATLAB online (free).
-7. Run `additinal_methods/l_minimax-s/prepare.m` using MATLAB with `truth_infer_0_.csv`, and `truth_infer_5_.csv` and `truth_infer_10_.csv`.
-8. Using `notebooks/evaluate_truth_infer.ipynb`, calculate the scores in the container.
+7. Run `additinal_methods/l_minimax-s/prepare.m` using MATLAB with `truth_infer_0.csv`, and `truth_infer_5.csv` and `truth_infer_10.csv`.
+8. Using `notebooks/evaluate_truth_infer.ipynb`, calculate the scores of each run in the container.
 
-#### BDS, HS-DS
+#### (4) Run BDS, HS-DS
 Run `notebooks\evaluate_bds_hsds.ipynb` in the container.
+
+#### (5) Obtain the summary
+Run `notebooks\summarize_results.ipynb` in the container.
 
 ## BDS / HS-DS implementations
 The `methods` folder contains code for BDS, HS-DS, and CBCC in Crowd-Kit format.
