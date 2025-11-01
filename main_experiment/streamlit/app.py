@@ -305,6 +305,7 @@ for i, (fdf, opt) in enumerate(zip(fdfs, options)):
     ax.set_xlim(0, 35)
     ax.set_ylim(-0.05, 1.05)
     ax.grid(True)
+    fig.savefig(f"temp_{i}.svg", bbox_inches='tight')
     figs.append(fig)  
 
 for i, (fig, opt) in enumerate(zip(figs, options)):

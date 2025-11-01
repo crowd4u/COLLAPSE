@@ -56,6 +56,8 @@ $ streamlit run app.py --server.port 9999
 
 Please visit http://localhost:9009/ to use this app.
 
+You can regenerate a part of figures in Figure 5, 8, and 9 by this app.
+
 ### Case Studies
 We provide a notebook that allows you to re-run the case studies performed in our paper.
 
