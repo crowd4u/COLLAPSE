@@ -22,7 +22,7 @@ $ python exp.py
 
 CBCC cannot be run in a non-Windows environment, so please run `exp_cbcc.py` on a Windows PC. We used `Python 3.11.3` with the libraries listed in `requirements_python3_win.txt`.
 
-However, data containing only human worker results (with `num_ai=0`) cannot be generated using this method. Please run `notebooks/human_only_results.ipynb` and `notebooks/human_only_results_cbcc.ipynb`.
+However, data containing only human worker results (with `num_ai=0`) cannot be generated using this method. Please run `notebooks/human_only_results.ipynb` (in the container) and `notebooks/human_only_results_cbcc.ipynb` (in the Windows venv).
 
 ### Data Preprocessing
 For reproducibility, we provide the code used to process and generate human and AI responses in the `preprocessing` folder.
@@ -42,7 +42,7 @@ These data were copied from the following publicly available data sources (exclu
  - `Dog` : https://github.com/zhydhkcws/crowd_truth_infer/tree/master/datasets/s4_Dog%20data
  - `Face` : https://github.com/zhydhkcws/crowd_truth_infer/tree/master/datasets/s4_Face%20Sentiment%20Identification
   - `Tiny` : We firstly published online.
-  - `Adult` : It was available at https://toloka.ai/datasets/ as `Toloka Aggregation Features`, but is no longer distributed.
+  - `Adult` : It was available at https://toloka.ai/datasets/ as `Toloka Aggregation Features`, but is no longer distributed (, but you can get it via the Wayback Machine).
 
 ### Visualize Results
 We obtained a total of 38,125 lines of experimental results and provide a visualization tool to analyze them.
@@ -58,8 +58,8 @@ Please visit http://localhost:9009/ to use this app.
 
 You can regenerate a part of figures in Figure 5, 8, and 9 by this app.
 
-### Case Studies
-We provide a notebook that allows you to re-run the case studies performed in our paper.
+### Case Studies & Analysis
+We provide a notebook that allows you to re-run the case studies and analysis performed in our paper.
 
  - Confusion Matrices (Figure 6) : `notebooks\cm_analysis.ipynb`
  - Analysis of Convergence (Section 5.1.3) : `notebooks\analysis_convergence.ipynb`
