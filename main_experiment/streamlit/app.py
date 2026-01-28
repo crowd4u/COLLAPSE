@@ -260,7 +260,7 @@ figs = []
 chart_data_list = [] 
 
 for i, (fdf, opt) in enumerate(zip(fdfs, options)):
-    fig, axs = plt.subplots(1, 3, figsize=(8, 1.5), sharex=True)
+    fig, axs = plt.subplots(1, 3, figsize=(13, 4), sharex=True)
     ax = axs[-1] 
     if fdf.empty:
         chart_data_list.append(None)
@@ -290,7 +290,7 @@ for i, (fdf, opt) in enumerate(zip(fdfs, options)):
                 color=color, 
                 capsize=5,
                 fmt=f'{METHODS_MARKER[method]}-',
-                markersize=5, linewidth=1.5, alpha=0.6,
+                 markersize=8, linewidth=1, alpha=0.8,
             )
     
     chart_data_list.append(pd.DataFrame(used_data) if used_data else None)
@@ -298,7 +298,8 @@ for i, (fdf, opt) in enumerate(zip(fdfs, options)):
     ax.set_title(f"{compare_target}: {opt}")        
     ax.set_xlabel("Number of AI Workers")
     ax.set_ylabel("Recall" if metric == "recall" else "Accuracy")
-    ax.legend(loc='center', bbox_to_anchor=(-0.8, -0.8), fontsize='medium', ncol=5)
+    ax.legend(loc='center', bbox_to_anchor=(-0.8, -0.8), fontsize='large', ncol=5)
+    
     ax.set_xlabel("#AI Workers ($K_a$)")
     for axis in axs[:-1]:
         axis.set_visible(False)
