@@ -69,7 +69,7 @@ We provide a notebook that allows you to re-run the case studies and analysis pe
  - Analysis of Convergence (Section 4.4.4) : `notebooks\analysis_convergence.ipynb`
  - Communities of CBCC (Figure 7): `notebooks\CBCC_analysis.ipynb`
 
-## EXP2: EXP2: REAL-WORLD EVALUATION
+## EXP2: REAL-WORLD EVALUATION
 Our final experimental results can be found in `ds1task5_aggregation_results_all_processed.csv`.
 
 ### Methods
