@@ -60,13 +60,13 @@ $ streamlit run app.py --server.port 9999
 
 Please visit http://localhost:9009/ to use this app.
 
-You can regenerate a part of figures in Figure 5, 8, and 9 by this app.
+You can regenerate a part of figures in Figure 5 and 8 by this app.
 
 ### Case Studies & Analysis
 We provide a notebook that allows you to re-run the case studies and analysis performed in our paper.
 
  - Confusion Matrices (Figure 6) : `notebooks\cm_analysis.ipynb`
- - Analysis of Convergence (Section 5.1.3) : `notebooks\analysis_convergence.ipynb`
+ - Analysis of Convergence (Section 4.4.4) : `notebooks\analysis_convergence.ipynb`
  - Communities of CBCC (Figure 7): `notebooks\CBCC_analysis.ipynb`
 
 ## EXP2: EXP2: REAL-WORLD EVALUATION
