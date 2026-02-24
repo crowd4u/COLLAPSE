@@ -77,7 +77,7 @@ The `truth_infer_methods` folder contains implementations of various aggregation
 
 | Method                                       | Link                                           |
 |----------------------------------------------|------------------------------------------------|
-| CATD, LFC, Minmax, PM-CRH, ZC                | https://github.com/zhydhkcws/crowd_truth_infer |
+| CATD, LFC, Minmax, PM-CRH, ZenCrowd                | https://github.com/zhydhkcws/crowd_truth_infer |
 | LA                                           | https://github.com/yyang318/LA_onepass         |
 
 ### Re-Run the additinal Experiment
