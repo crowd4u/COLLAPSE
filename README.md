@@ -88,7 +88,7 @@ For all methods **except CBCC and Minmax**, you can rerun the experiment with th
 $ docker compose up -d
 $ docker exec -it collapse bash
 $ cd exp2
-$ rm ds1task5_aggregation_results_all_*.csv
+$ rm ds1task5_aggregation_results_*.csv
 $ python 1_run_exp2.py
 ```
 
