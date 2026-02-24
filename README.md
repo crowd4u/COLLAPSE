@@ -70,7 +70,7 @@ We provide a notebook that allows you to re-run the case studies and analysis pe
  - Communities of CBCC (Figure 7): `notebooks\CBCC_analysis.ipynb`
 
 ## EXP2: EXP2: REAL-WORLD EVALUATION
-Our experimental results can be found in `results`.
+Our final experimental results can be found in `ds1task5_aggregation_results_all_processed.csv`.
 
 ### Methods
 The `truth_infer_methods` folder contains implementations of various aggregation methods, copied from the following repositories with minimal modifications.
