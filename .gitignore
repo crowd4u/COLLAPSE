@@ -384,3 +384,4 @@ methods/CBCC/Results/communities.csv
 exp1/outputs/*
 exp2/outputs/*
 exp2/main_scripts/ds1task5/workdir/*
+exp2/main_scripts/outputs/*
