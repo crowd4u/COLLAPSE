@@ -1,0 +1,1 @@
+{"model_name": "Llama-2-70b-chat-hf", "dataset_id": 1, "task_id": 5, "sample": 250, "epoch": 3, "prompt_max_len": 4096, "batch_size": 4, "grad_acc": 2, "temperature": 0.05}
