@@ -2,7 +2,7 @@
 
 This repository provides supplementary material for the paper "Aggregating Labels from Humans and AIs with Asymmetric Performance," currently under peer review.
 
-## Main Experiment
+## EXP1: COMPREHENSIVE BENCHMARK
 We provide a Docker container for easy reproduction.
 
 FYI: You can use jupyter lab on `http://localhost:8008/` when running this container (Please check the token following command `docker exec -it collapse jupyter server list`).
@@ -11,7 +11,7 @@ FYI: You can use jupyter lab on `http://localhost:8008/` when running this conta
 ```sh
 $ docker compose up -d
 $ docker exec -it collapse bash
-$ cd main_experiment
+$ cd exp1
 $ rm -r results
 $ rm -r results_cbcc
 $ rm -r results_human
@@ -32,7 +32,7 @@ If you want to reproduce the experiment from the data generation process, you ca
 ```sh
 $ docker compose up -d
 $ docker exec -it collapse bash
-$ cd main_experiment/preprocessing
+$ cd exp1/preprocessing
 $ python generate_human_responses.py
 $ python generate_ai_responses.py
 ```
@@ -51,7 +51,7 @@ We obtained a total of 38,125 lines of experimental results and provide a visual
 ```sh
 $ docker compose up -d
 $ docker exec -it collapse bash
-$ cd main_experiment/streamlit
+$ cd exp1/streamlit
 $ streamlit run app.py --server.port 9999
 ```
 
