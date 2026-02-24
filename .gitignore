@@ -379,9 +379,9 @@ methods/HSDS_stan/step1
 additinal_experiment/scripts/truth_infer_0.csv
 additinal_experiment/scripts/truth_infer_5.csv
 additinal_experiment/scripts/truth_infer_10.csv
-main_experiment/streamlit/temp_0.svg
-main_experiment/streamlit/temp_1.svg
-main_experiment/streamlit/temp_2.svg
-main_experiment/streamlit/temp_3.svg
+exp1/streamlit/temp_0.svg
+exp1/streamlit/temp_1.svg
+exp1/streamlit/temp_2.svg
+exp1/streamlit/temp_3.svg
 methods/CBCC/Results/communities.csv
 
