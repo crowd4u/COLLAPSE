@@ -132,7 +132,7 @@ These data were copied from the following publicly available data sources.
  - `human-predictions` : https://doi.org/10.7910/DVN/PQYF6M
  - `llm-predictions` : https://osf.io/ctgqx/
 
-### Repuroducting Figure 9
+### Reproducting Figure 9
 Run the `0_figure9.ipynb`.
 
 ## BDS / HS-DS implementations
