@@ -1,0 +1,1 @@
+{"model_name": "google_flan-t5-xl", "dataset_id": 1, "task_id": 5, "sample": 100, "epoch": 3, "prompt_max_len": 4096, "batch_size": 4, "grad_acc": 2, "is_zero_shot": false}
