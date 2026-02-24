@@ -3,7 +3,7 @@
 This repository provides supplementary material for the paper "Aggregating Labels from Humans and AIs with Asymmetric Performance," currently under peer review.
 
 ## Appendix of the paper
-Please see [`appendix.pdf`](https://github.com/crowd4u/COLLAPSE/blob/main/appendix.pdf)).
+Please see [`appendix.pdf`](https://github.com/crowd4u/COLLAPSE/blob/main/appendix.pdf).
 
 ## EXP1: COMPREHENSIVE BENCHMARK
 We provide a Docker container for easy reproduction.
