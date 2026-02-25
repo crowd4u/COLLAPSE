@@ -95,8 +95,8 @@ $ python 1_run_exp2.py
 #### CBCC
 For CBCC, **after activating the appropriate virtual environment** and run on Windows PC:
 ```sh
-> cd exp2
-> .\1_run_exp2.py
+PS> cd exp2
+PS> .\1_run_exp2_cbcc.bat
 ```
 (We used `Python 3.11.3` with the libraries listed in `requirements_python3_win.txt`.)
 
